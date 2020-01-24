@@ -2,6 +2,7 @@
 set -eo pipefail
 [[ $BUILDKITE_LABEL == ':pipeline: Pipeline Upload' ]] && exit 0
 echo "[Preparing Submodules]"
+git submodule foreach --recursive "git clean -ffxdq"
 if [[ $BUILDKITE_PIPELINE_SLUG =~ 'eosio-security' ]]; then
     CWD=$(pwd)
     oIFS=$IFS
