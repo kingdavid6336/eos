@@ -1,5 +1,6 @@
 #!/bin/bash
 set -eo pipefail
+[[ $BUILDKITE_LABEL == ':pipeline: Pipeline Upload' ]] && exit 0
 echo "[Preparing Submodules]"
 if [[ $BUILDKITE_PIPELINE_SLUG =~ 'eosio-security' ]]; then
     CWD=$(pwd)
